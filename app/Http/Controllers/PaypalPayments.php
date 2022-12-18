@@ -36,7 +36,11 @@ class PaypalPayments extends Controller
 
 		$response = $provider->setExpressCheckout($data);
 
-		return redirect($response['paypal_link']);
+		if($response['paypal_link'] == null){
+  		 // custom redirection
+  		 return redirect()->back()->with(['error'=>'paypal link no set']);
+		}
+		return redirect()->away($response['paypal_link']);
    }
 
 	protected function paymentData ($price){

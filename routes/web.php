@@ -64,3 +64,5 @@ Route::any('file-downloads/{questionid}/{commentid}/{type}/{filename}/',
 //paypal routes
 Route::get('payment-with-paypal/{price}',
 	['uses' => 'PaypalPayments@PayWithPaypal', 'as' =>'get.paypal']);
+
+//Route::get ('paypal-callback/', ['uses' => 'PaypalPayments@PayWithPaypalCallback', 'as' => 'paypal-callback']);
